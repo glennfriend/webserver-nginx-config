@@ -8,7 +8,7 @@ server {
 
     # https
     include /etc/nginx/webserver-nginx-config/my/ssl.conf;
-
+    include /etc/nginx/webserver-nginx-config/my/server-v1.conf;
 
     #
     # wordpress
@@ -20,13 +20,14 @@ server {
         index index.php;
         include /etc/nginx/webserver-nginx-config/my/wordpress.conf;
         include /etc/nginx/webserver-nginx-config/my/php72.conf;
-
+        include /etc/nginx/webserver-nginx-config/my/site-201903a.conf;
     }
 
     location /html {
         alias /var/www/html;
         index index.html index.php index.htm;
         include /etc/nginx/webserver-nginx-config/my/php73.conf;
+        include /etc/nginx/webserver-nginx-config/my/site-201903a.conf;
     }
 
     #
@@ -35,6 +36,7 @@ server {
     location /your-phpmyadmin-route {
         alias /var/www/phpmyadmin;
         include /etc/nginx/webserver-nginx-config/my/php72.conf;
+        include /etc/nginx/webserver-nginx-config/my/site-201903a.conf;
     }
 
 }
